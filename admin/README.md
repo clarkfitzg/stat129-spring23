@@ -1,5 +1,5 @@
 This directory contains my (Clark Fitzgerald) personal notes and scripts to implement the class.
-You're welcome to look in here to see what's going on.
+You're welcome to look in here to see what's going on, but note this code might be the "quick and dirty" version.
 
 
 Tue Jan 24 21:03:51 UTC 2023
