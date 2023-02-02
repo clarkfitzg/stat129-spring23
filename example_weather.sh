@@ -4,7 +4,10 @@
 
 grep -i "Sacramento" /stat129/ghcnd-stations.txt > sac_stations.csv
 
-zcat /stat129/2022.csv.gz | grep "US1CASA0011|USW00093225" | head > 2022small.csv
+# TODO: modify so doesn't do multiple passes through data
+RAWDATA=/stat129/2022.csv.gz 
+EXAMPLE=2022small.csv
 
-zcat /stat129/2022.csv.gz | grep "USW00093225" | head >> 2022small.csv
-
+zcat $RAWDATA | grep -E "US1CASA0001" | head > $EXAMPLE
+zcat $RAWDATA | grep -E "US1CASA0002" | head >> $EXAMPLE
+zcat $RAWDATA | grep -E "US1CASA0058" | head >> $EXAMPLE
