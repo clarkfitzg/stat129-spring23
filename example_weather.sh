@@ -2,7 +2,7 @@
 # Thu Feb  2 20:41:32 UTC 2023
 # Get some weather data for playing around in class.
 
-grep -i "Sacramento" /stat129/ghcnd-stations.txt > sac_stations.csv
+grep -i "Sacramento" /stat129/ghcnd-stations.txt > sac_stations.txt
 
 # TODO: modify so doesn't do multiple passes through data
 RAWDATA=/stat129/2022.csv.gz 
