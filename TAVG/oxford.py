@@ -17,7 +17,8 @@ def weather(datafile='/stat129/1900.csv.gz'):
 
 def allweather(datafiles='/stat129/*.csv.gz'):
     """
-    Generator for ALL the weather observations
+    Generator for ALL the weather observations.
+    Warning- takes 160 minutes to iterate through this stream in Python.
     """
     full_file_paths = glob.glob(datafiles)
     allstreams = map(weather, full_file_paths)
