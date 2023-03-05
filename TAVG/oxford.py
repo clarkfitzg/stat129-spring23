@@ -21,6 +21,7 @@ def allweather(datafiles='/stat129/*.csv.gz'):
     Warning- takes 160 minutes to iterate through this stream in Python.
     """
     full_file_paths = glob.glob(datafiles)
+    full_file_paths.sort()
     allstreams = map(weather, full_file_paths)
     combined = itertools.chain(*allstreams)
     yield from combined
@@ -30,16 +31,16 @@ def allweather(datafiles='/stat129/*.csv.gz'):
 # Select TMAX observations from Oxford, which seem to be complete
 STN_ID="UK000056225"
 
-with open("oxford_tmax.csv", "w") as f:
-    fieldnames = ['year', 'date', 'tmax']
+with open("oxford_weather.csv", "w") as f:
+    fieldnames = ['year', 'date', 'element', 'value']
     writer = csv.DictWriter(f, fieldnames=fieldnames)
     writer.writeheader()
     for obs in allweather():
         #for obs in weather():
-        if obs["station"] == STN_ID and obs["element"] == "TMAX":
+        if obs["station"] == STN_ID :
             row = {"year": obs["date"][:4],
                     "date": obs["date"][4:],
-                    "tmax": obs["value"],
+                    "element": obs["element"],
+                    "value": obs["value"],
                     }
             writer.writerow(row)
-
