@@ -19,5 +19,6 @@ Show output from unit tests
 len(stream)
 Don't assume that the length of stream is known.
 Don't assume that the length of stream is known, or that you can index into it.
+Instead, loop directly over the stream.
 I need to add a test case to prevent this!
 
